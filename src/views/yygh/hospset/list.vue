@@ -30,11 +30,11 @@
                 <template slot-scope="scope">
                     <el-button type="danger" size="mini" icon="el-icon-delete"
                         @click="removeDataById(scope.row.id)"></el-button>
-                    <el-button v-if="scope.row.status == 1" type="primary" size="mini" icon="el-icon-unlock"
+                    <el-button v-if="scope.row.status === 1" type="primary" size="mini" icon="el-icon-unlock"
                         @click="lockHospSet(scope.row.id, 0)"></el-button>
-                    <el-button v-if="scope.row.status == 0" type="danger" size="mini" icon="el-icon-lock"
+                    <el-button v-else type="danger" size="mini" icon="el-icon-lock"
                         @click="lockHospSet(scope.row.id, 1)"></el-button>
-                    <router-link :to="'/hospSet/edit/' + scope.row.id">
+                    <router-link :to="'/hospSet/edit/' + scope.row.id" style="margin-left: 10px;">
                         <el-button type="primary" size="mini" icon="el-icon-edit"></el-button>
                     </router-link>
 
@@ -83,15 +83,15 @@ export default {
                 .then(() => {
                     //确定执行then方法
                     //调用接口
-                    hospset.deleteHospSet(id)
-                        .then((response) => {
+                    hospset.deleteHospById(id)
+                        .then(() => {
                             //提示
                             this.$message({
                                 type: "success",
                                 message: "删除成功!",
                             });
                             //刷新页面
-                            this.getList(1);
+                            this.getList();
                         });
                 })
                 .catch(() => {

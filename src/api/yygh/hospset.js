@@ -10,6 +10,12 @@ export default {
       data: searchObj,
     });
   },
+  deleteHospById(id) {
+    return request({
+      url: `${prefix}/deleteById/${id}`,
+      method: "delete",
+    });
+  },
   //根据dict_code查询所有子节点
   findByDictCode(dictCode) {
     return request({
