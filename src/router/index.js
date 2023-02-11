@@ -241,9 +241,8 @@ export const asyncRoutes = [
       },
       {
         path: "create",
-        component: () => import("@/views/example/create"),
-        name: "CreateArticle",
-        meta: { title: "Create Article", icon: "edit" },
+        component: () => import("@/views/yygh/hospset/add"),
+        meta: { title: "添加医院", icon: "edit" },
       },
       {
         path: "edit/:id(\\d+)",

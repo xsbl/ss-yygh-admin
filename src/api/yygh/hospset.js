@@ -16,6 +16,13 @@ export default {
       method: "delete",
     });
   },
+  saveHosp(hosp) {
+    return request({
+      url: `${prefix}/saveHospitalSet`,
+      method: "post",
+      data: hosp,
+    });
+  },
   //根据dict_code查询所有子节点
   findByDictCode(dictCode) {
     return request({
