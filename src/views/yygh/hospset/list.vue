@@ -145,14 +145,14 @@ export default {
         lockHospSet(id, status) {
             hospset
                 .lockHospSet(id, status)
-                .then((response) => {
+                .then(() => {
                     this.$message({
                         type: "success",
                         message: "操作成功"
                     });
-                    this.getList(1)
+                    this.getList()
                 })
-                .catch((error) => {
+                .catch(() => {
                     this.$message({
                         type: "error",
                         message: "操作失败"

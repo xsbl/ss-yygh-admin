@@ -45,6 +45,13 @@ export default {
       data: ids,
     });
   },
+  //更新医院状态
+  lockHospSet(id, status) {
+    return request({
+      url: `${prefix}/lockHospital/${id}/${status}`,
+      method: "put",
+    });
+  },
   //根据dict_code查询所有子节点
   findByDictCode(dictCode) {
     return request({
