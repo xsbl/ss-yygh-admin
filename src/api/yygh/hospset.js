@@ -38,6 +38,13 @@ export default {
       data: hosp,
     });
   },
+  batchRemoveHospSet(ids) {
+    return request({
+      url: `${prefix}/batchRemove`,
+      method: "delete",
+      data: ids,
+    });
+  },
   //根据dict_code查询所有子节点
   findByDictCode(dictCode) {
     return request({

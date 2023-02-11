@@ -9,7 +9,6 @@
             </el-form-item>
             <el-button type="primary" icon="el-icon-search" @click="getList()">查询</el-button>
         </el-form>
-        <!-- 工具条 -->
         <div>
             <el-button type="danger" size="mini" @click="removeRows()">批量删除</el-button>
         </div>
@@ -119,23 +118,21 @@ export default {
                 type: "warning",
             })
                 .then(() => {
-                    var idList = []
-                    for (var i = 0; i < this.selectionList.length; i++) {
-                        var obj = this.selectionList[i]
-                        var id = obj.id
-                        idList.push(id)
-                    }
+                    var ids = []
+                    this.selectionList.forEach(e => {
+                        ids.push(e.id)
+                    })
                     //确定执行then方法
                     //调用接口
-                    hospset.batchRemoveHospSet(idList)
-                        .then((response) => {
+                    hospset.batchRemoveHospSet(ids)
+                        .then(() => {
                             //提示
                             this.$message({
                                 type: "success",
                                 message: "删除成功!",
                             });
                             //刷新页面
-                            this.getList(1);
+                            this.getList();
                         });
                 })
                 .catch(() => {
