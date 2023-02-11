@@ -23,6 +23,21 @@ export default {
       data: hosp,
     });
   },
+  //根据id获取医院详情
+  getHospById(id) {
+    return request({
+      url: `${prefix}/getHospitalSet/${id}`,
+      method: "get",
+    });
+  },
+  //更新医院
+  updateHospitalSet(hosp) {
+    return request({
+      url: `${prefix}/updateHospitalSet`,
+      method: "post",
+      data: hosp,
+    });
+  },
   //根据dict_code查询所有子节点
   findByDictCode(dictCode) {
     return request({
@@ -34,20 +49,6 @@ export default {
   findByParentId(id) {
     return request({
       url: `/admin/cmn/dict/findChildData/${id}`,
-      method: "get",
-    });
-  },
-  //更新医院状态
-  updateStatus(id, status) {
-    return request({
-      url: `/admin/hosp/hospital/updateStatus/${id}/${status}`,
-      method: "put",
-    });
-  },
-  //根据id获取医院详情
-  getHospById(id) {
-    return request({
-      url: `/admin/hosp/hospital/showHospDetail/${id}`,
       method: "get",
     });
   },

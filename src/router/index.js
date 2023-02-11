@@ -245,11 +245,10 @@ export const asyncRoutes = [
         meta: { title: "添加医院", icon: "edit" },
       },
       {
-        path: "edit/:id(\\d+)",
-        component: () => import("@/views/example/edit"),
-        name: "EditArticle",
+        path: "edit/:id",
+        component: () => import("@/views/yygh/hospset/add"),
         meta: {
-          title: "Edit Article",
+          title: "修改医院",
           noCache: true,
           activeMenu: "/example/list",
         },

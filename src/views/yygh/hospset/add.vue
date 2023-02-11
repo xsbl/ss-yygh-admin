@@ -61,14 +61,14 @@ export default {
         update() {
             hospset
                 .updateHospitalSet(this.hospitalSet)
-                .then((response) => {
+                .then(() => {
                     this.$message({
                         type: "success",
                         message: "修改成功",
                     });
-                    this.$router.push({ path: '/hospset/list' })
+                    this.$router.push({ path: '/hospitalset/list' })
                 })
-                .catch((error) => {
+                .catch(() => {
                     this.$message({
                         type: "error",
                         message: "操作失败",
@@ -85,7 +85,7 @@ export default {
             this.saveBtnDisabled = false
         },
         getHospSetById(id) {
-            hospset.getHospSetById(id)
+            hospset.getHospById(id)
                 .then(response => {
                     this.hospitalSet = response.data
                 })

@@ -36,7 +36,7 @@
                         @click="lockHospSet(scope.row.id, 0)"></el-button>
                     <el-button v-else type="danger" size="mini" icon="el-icon-lock"
                         @click="lockHospSet(scope.row.id, 1)"></el-button>
-                    <router-link :to="'/hospSet/edit/' + scope.row.id" style="margin-left: 10px;">
+                    <router-link :to="'/hospitalset/edit/' + scope.row.id" style="margin-left: 10px;">
                         <el-button type="primary" size="mini" icon="el-icon-edit"></el-button>
                     </router-link>
 
