@@ -247,11 +247,7 @@ export const asyncRoutes = [
       {
         path: "edit/:id",
         component: () => import("@/views/yygh/hospset/add"),
-        meta: {
-          title: "修改医院",
-          noCache: true,
-          activeMenu: "/example/list",
-        },
+        meta: { title: "修改医院", icon: "edit" },
         hidden: true,
       },
     ],
