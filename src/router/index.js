@@ -252,7 +252,22 @@ export const asyncRoutes = [
       },
     ],
   },
-
+  {
+    path: "/dict",
+    component: Layout,
+    redirect: "/dict/list",
+    meta: {
+      title: "字典数据",
+      icon: "el-icon-setting",
+    },
+    children: [
+      {
+        path: "list",
+        component: () => import("@/views/yygh/dict/list"),
+        meta: { title: "字典数据展示", icon: "list" },
+      },
+    ],
+  },
   {
     path: "/tab",
     component: Layout,
