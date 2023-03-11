@@ -269,6 +269,22 @@ export const asyncRoutes = [
     ],
   },
   {
+    path: "/hospital",
+    component: Layout,
+    redirect: "/hospital/list",
+    meta: {
+      title: "医院信息",
+      icon: "el-icon-setting",
+    },
+    children: [
+      {
+        path: "list",
+        component: () => import("@/views/yygh/hosp/list"),
+        meta: { title: "医院列表", icon: "list" },
+      },
+    ],
+  },
+  {
     path: "/tab",
     component: Layout,
     children: [
