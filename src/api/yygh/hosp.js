@@ -18,4 +18,12 @@ export default {
       method: "get",
     });
   },
+
+  //查询医院详情
+  getHospById(id) {
+    return request({
+      url: `${prefix}/detail/${id}`,
+      method: "get",
+    });
+  },
 };

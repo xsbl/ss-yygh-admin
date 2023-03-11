@@ -282,6 +282,12 @@ export const asyncRoutes = [
         component: () => import("@/views/yygh/hosp/list"),
         meta: { title: "医院列表", icon: "list" },
       },
+      {
+        path: "detail/:id",
+        component: () => import("@/views/yygh/hosp/detail"),
+        meta: { title: "医院详情", icon: "edit" },
+        hidden: true,
+      },
     ],
   },
   {
