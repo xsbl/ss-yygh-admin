@@ -127,7 +127,7 @@ export default {
         },
         updateStatus(id, status) {
             hospApi
-                .updateStatus(id, status)
+                .updateHospStatus(id, status)
                 .then((response) => {
                     this.$message({
                         type: "success",

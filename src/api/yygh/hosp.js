@@ -10,4 +10,12 @@ export default {
       params: searchObj,
     });
   },
+
+  //修改医院状态
+  updateHospStatus(id, status) {
+    return request({
+      url: `${prefix}/${id}/${status}`,
+      method: "get",
+    });
+  },
 };
