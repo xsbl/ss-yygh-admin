@@ -50,6 +50,12 @@ module.exports = {
         changeOrigin: true,
         pathRewrite: { "^/api8202": "" },
       },
+      //统一请求后台gateway网关微服务
+      "/api8222": {
+        target: "http://localhost:8222", // 代理目标的基础路径
+        changeOrigin: true,
+        pathRewrite: { "^/api8222": "" },
+      },
     },
   },
   configureWebpack: {

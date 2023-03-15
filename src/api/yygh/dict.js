@@ -1,6 +1,7 @@
 import request from "@/utils/request";
 
-const prefix = "/api8202/admin/cmn/dict";
+// const prefix = "/api8202/admin/cmn/dict";
+const prefix = "/api8222/admin/cmn/dict";
 export default {
   //字典列表数据接口
   getDictList(id) {

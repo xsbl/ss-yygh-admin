@@ -1,6 +1,7 @@
 import request from "@/utils/request";
 
-const prefix = "/api8201/admin/hospital";
+// const prefix = "/api8201/admin/hospital";
+const prefix = "/api8222/admin/hospital";
 export default {
   //医院列表接口
   getHospList(pageNo, limit, searchObj) {
