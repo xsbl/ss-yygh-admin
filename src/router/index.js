@@ -288,6 +288,12 @@ export const asyncRoutes = [
         meta: { title: "医院详情", icon: "edit" },
         hidden: true,
       },
+      {
+        path: "schedule/:hoscode",
+        component: () => import("@/views/yygh/hosp/schedule"),
+        meta: { title: "排班详情", icon: "edit" },
+        hidden: true,
+      },
     ],
   },
   {
