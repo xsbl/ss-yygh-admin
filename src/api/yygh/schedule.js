@@ -8,4 +8,11 @@ export default {
       method: "get",
     });
   },
+
+  getScheduleDetail(hoscode, depcode, workDate) {
+    return request({
+      url: `${prefix}/${hoscode}/${depcode}/${workDate}`,
+      method: "get",
+    });
+  },
 };

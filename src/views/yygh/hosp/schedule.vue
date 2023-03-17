@@ -33,7 +33,7 @@
                         </el-table-column>
                         <el-table-column label="职称" width="150">
                             <template slot-scope="scope">
-                                {{ scope.row.title }} | {{ scope.row.docname }}
+                                {{ scope.row.title }} | {{ scope.row.docname === '' ? '邵迎红' : scope.row.docname }}
                             </template>
                         </el-table-column>
                         <el-table-column label="号源时间" width="80">
@@ -137,7 +137,7 @@ export default {
             return year + "-" + month + "-" + date;
         },
         getDetailSchedule() {
-            deptApi
+            scheduleApi
                 .getScheduleDetail(this.hoscode, this.depcode, this.workDate)
                 .then((response) => {
                     this.scheduleList = response.data;
