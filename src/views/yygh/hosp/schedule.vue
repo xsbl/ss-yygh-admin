@@ -13,16 +13,11 @@
                 <el-row style="width: 100%">
                     <!-- 排班日期 分页 -->
                     <el-tag v-for="(item, index) in bookingScheduleList" :key="item.id"
-                        @click="selectDate(item.workDate, index)" :type="index == activeIndex ? '' : 'info'" style="
-                                      height: 60px;
-                                      margin-right: 5px;
-                                      margin-right: 15px;
-                                      cursor: pointer;
-                                    ">
+                        @click="selectDate(item.workDate, index)" :type="index == activeIndex ? '' : 'info'"
+                        class="booking-item">
                         {{ item.workDate }} {{ item.dayOfWeek }}<br />
                         {{ item.availableNumber }} / {{ item.reservedNumber }}
                     </el-tag>
-
                     <!-- 分页 -->
                     <el-pagination :current-page="page" :total="total" :page-size="limit" class="pagination"
                         layout="prev, pager, next" @current-change="getPage">
@@ -58,6 +53,7 @@
 </template>
 <script>
 import deptApi from "@/api/yygh/dept";
+import scheduleApi from "@/api/yygh/schedule";
 export default {
     data() {
         return {
@@ -103,16 +99,16 @@ export default {
             this.getScheduleRule();
         },
         getScheduleRule() {
-            deptApi
+            scheduleApi
                 .getScheduleRule(this.page, this.limit, this.hoscode, this.depcode)
                 .then((response) => {
                     this.bookingScheduleList = response.data.bookingScheduleRuleList;
                     this.total = response.data.total;
-                    this.scheduleList = response.data.scheduleList;
+                    // this.scheduleList = response.data.scheduleList;
                     this.baseMap = response.data.baseMap;
                     // 分页后workDate=null，默认选中第一个
-                    if (this.workDate == null) {
-                        this.workDate = this.bookingScheduleList[0].workDate;
+                    if (this.workDate === null) {
+                        this.workDate = this.bookingScheduleList[0] && this.bookingScheduleList[0].workDate;
                     }
                     this.getDetailSchedule()
                 });
@@ -150,7 +146,13 @@ export default {
     },
 };
 </script>
-<style>
+<style lang="css" scoped>
+.booking-item {
+    height: 60px;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
 .el-tree-node.is-current>.el-tree-node__content {
     background-color: #409eff !important;
     color: white;
